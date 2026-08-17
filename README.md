@@ -329,6 +329,41 @@ flowchart LR
 
 ---
 
+## Reading the chart
+
+The scanner ranks; the companion chart study is what you look at before committing. Its
+visual encoding is built so that the two questions — *where is price relative to value* and
+*what is value itself doing* — are answered by position and colour independently.
+
+| Element | Encoding |
+|---|---|
+| **Fast Kalman centerline** | Coloured by its own slope: **blue** while the value estimate is rising, **yellow** while it is falling |
+| **Drift line** | Same idea, its own palette: **light blue** while the slow estimate is rising, **gold** while it is falling |
+| **Inner Keltner bands** | Inherit the drift's state: **green** in bullish drift, **red** in bearish drift |
+| **Outer Keltner bands** | Neutral **black** — pure geometry, carrying no state |
+
+Colouring a line by its own slope means the derivative is read directly off the chart
+instead of from a second indicator, and it is what makes the **pullback-versus-reversal**
+distinction visible at a glance. Price sitting on the lower bands is the same *location* in
+all of the following cases, but they are not the same *situation*:
+
+- **Centerline still blue, drift still light blue** — value is advancing and price has
+  fallen away from it. A dislocation inside an advance, which is the setup the scanner is
+  built to find.
+- **Centerline turned yellow while drift is still light blue** — the estimate of value has
+  itself started to fall, even though the higher-timeframe bias hasn't given way. The
+  dislocation is no longer just price leaving value behind; value is now following price
+  down. Early warning that a dip may be turning into something else.
+- **Inner bands turned red** — drift has flipped bearish, and a low print is no longer a
+  pullback in an uptrend at all. This is the state the screener reports as its no-longs
+  code rather than as a setup.
+
+Because the bands take their colour from the drift and their position from the fast
+estimate plus ATR, a single glance carries the whole model state: colour is *permission*,
+position is *location*, and width is *volatility*.
+
+---
+
 ## Parameters — what each one does
 
 The tuned values are private, but here is the full set of knobs and what moving each one
