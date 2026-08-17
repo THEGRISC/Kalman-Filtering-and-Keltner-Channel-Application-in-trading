@@ -284,6 +284,14 @@ estimate into three depths. Every candidate gets a score:
 | **−1** | Drift is bearish — no longs |
 | **−2** | Failed the liquidity gate — not tradeable, don't even rank it |
 
+<img src="assets/radarscreen_scanner.png" width="620" alt="The screener running live in TradeStation RadarScreen">
+
+*Live output: the screener running in TradeStation RadarScreen. The study contributes the
+**Score** and **Drift** columns; the rest are ordinary quote fields. Names in bearish drift
+score −1 and collect at the bottom, so the ranking answers "what should I look at" and
+"what should I ignore" in the same sorted column. This is the daily workflow — scan, sort,
+open the top few on a chart.*
+
 Grading rather than triggering is a deliberate choice. A binary signal throws away the
 information that one setup is twice as stretched as another, and it forces the threshold to
 carry all the weight. A sorted score column means the daily workflow is "look at the top of
