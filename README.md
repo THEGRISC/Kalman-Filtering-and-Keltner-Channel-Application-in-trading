@@ -339,6 +339,30 @@ flowchart LR
   LRB --> OUT
 ```
 
+### A worked example — and what it does not show
+
+![SPX daily with the July 29 zone hit](assets/kk_chart_spx_daily.svg)
+
+On **29 July 2026** the S&P 500 closed at 7,316.15 with a low of 7,313.92, putting it in
+the band region just above the outer lower band at 7,287.11, while the weekly drift estimate
+was still rising. It was the **only bar in that entire stretch to score at all** — every
+other session in the surrounding month scored zero. Over the following week the index traded
+up 5.6%, and 6.6% by 13 August.
+
+That is a clean illustration of the shape the scanner is built to find: a sharp dislocation
+below estimated value, arriving while the higher-timeframe bias is still intact, in a name
+whose surrounding sessions gave no signal at all. It also shows why grading matters — the
+bar registered as a genuine reading rather than being lost in a binary threshold that either
+fires constantly or not at all.
+
+**It is not evidence of edge, and shouldn't be read as any.** One instance is an anecdote.
+Picking the example after seeing the outcome is exactly the selection bias that makes chart
+annotations worthless as proof, and I chose this bar precisely because I already knew what
+followed it. What would actually constitute evidence is realized R across a large sample of
+signals, including the ones that failed — which is the whole reason the scanner's output is
+logged and scored rather than admired on a chart. Treat this figure as a diagram of the
+mechanism, not a result.
+
 ---
 
 ## Reading the chart
