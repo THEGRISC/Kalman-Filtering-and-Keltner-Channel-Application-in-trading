@@ -179,11 +179,22 @@ and since $K_\infty \approx \sqrt{\lambda}$ for small $\lambda$,
 $$K_{\text{drift}} \approx \frac{K_{\text{fast}}}{m} \qquad\Longrightarrow\qquad N_{\text{drift}} \approx m \cdot N_{\text{fast}}$$
 
 So splitting the noises in opposite directions by $m$ lengthens the filter's effective
-memory by very close to a factor of $m$. Choose $m$ to be the number of trading bars in the
-higher timeframe you care about, and the slow filter approximates that timeframe's bias —
-**from the same daily series, with no second data feed, no resampling, and no alignment
-bugs.** That is the piece of this design I'm happiest with: multi-timeframe context as a
-consequence of the model rather than as extra plumbing.
+memory by very close to a factor of $m$. Set $m$ to the number of trading bars in the
+higher timeframe you care about and the identity becomes concrete:
+
+> **The drift line on a daily chart is the Kalman estimate of the weekly chart.**
+
+It is not an approximation of a weekly *trend* in some loose sense — it is what the fast
+filter would produce if you fed it weekly bars, recovered from the daily series by
+stretching the filter's memory instead of resampling the data. That's the piece of this
+design I'm happiest with: **multi-timeframe context from one feed, with no second data
+subscription, no resampling, and no alignment bugs** — the two most common sources of
+silent error in multi-timeframe systems, both removed by construction rather than by
+careful bookkeeping.
+
+It also means the daily chart alone carries both horizons. You are never comparing two
+charts and reconciling them by eye; the weekly read is drawn on the daily chart, in a
+colour, at the same scale as everything else.
 
 ### From a smooth line to a regime state
 
@@ -339,7 +350,7 @@ visual encoding is built so that the two questions — *where is price relative 
 | Element | Encoding |
 |---|---|
 | **Fast Kalman centerline** | Coloured by its own slope: **blue** while the value estimate is rising, **yellow** while it is falling |
-| **Drift line** | Same idea, its own palette: **light blue** while the slow estimate is rising, **gold** while it is falling |
+| **Drift line** | Same idea, its own palette: **light blue** while the slow estimate is rising, **gold** while it is falling. Remember this line is the *weekly* Kalman estimate drawn on the daily chart |
 | **Inner Keltner bands** | Inherit the drift's state: **green** in bullish drift, **red** in bearish drift |
 | **Outer Keltner bands** | Neutral — pure geometry, carrying no state |
 
