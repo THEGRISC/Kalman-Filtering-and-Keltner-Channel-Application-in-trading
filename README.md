@@ -351,17 +351,17 @@ flowchart LR
 
 ![SPX daily with the July 29 zone hit](assets/kk_chart_spx_daily.svg)
 
-On **29 July 2026** the S&P 500 closed at 7,316.15 with a low of 7,313.92, putting it in
-the band region just above the outer lower band at 7,287.11, while the weekly drift estimate
-was still rising. It was the **only bar in that entire stretch to score at all** — every
-other session in the surrounding month scored zero. Over the following week the index traded
-up 5.6%, and 6.6% by 13 August.
+On **29 July 2026** the S&P 500 traded down to a low of 7,313.92 and closed at 7,316.15,
+piercing the outer lower band at 7,329.91 — roughly a fifth of an ATR through it — while the
+weekly drift estimate was still rising. That is the deepest reading the scanner can produce:
+the outer zone, in a bullish regime. Over the following week the index traded up 5.6%, and
+6.6% by 13 August.
 
 That is a clean illustration of the shape the scanner is built to find: a sharp dislocation
-below estimated value, arriving while the higher-timeframe bias is still intact, in a name
-whose surrounding sessions gave no signal at all. It also shows why grading matters — the
-bar registered as a genuine reading rather than being lost in a binary threshold that either
-fires constantly or not at all.
+through the outer band, arriving while the higher-timeframe bias is still intact, in a
+window where almost every other session registered nothing. It also shows why grading
+matters — the bar separates itself from the merely-mild pullback earlier in the same window
+instead of both collapsing into one binary "triggered" state.
 
 **It is not evidence of edge, and shouldn't be read as any.** One instance is an anecdote.
 Picking the example after seeing the outcome is exactly the selection bias that makes chart
